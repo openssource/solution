@@ -1,4 +1,4 @@
-package com.openssource.contribution.alorithm.leetcode.problemset;
+package problemset;
 
 /**
  * https://leetcode.com/problems/two-sum/
