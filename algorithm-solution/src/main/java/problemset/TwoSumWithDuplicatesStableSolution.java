@@ -10,35 +10,15 @@ return [0, 1]
 
 class TwoSumWithDuplicatesStableSolution {
     public int[] twoSum(int[] nums, int target) {
-        Map<Integer, List<Integer>> pos = new HashMap<>();
+        Map<Integer, Integer> pos = new HashMap<>();
         
         for(int i = 0; i<nums.length; i++) {
-            List<Integer> posL = pos.get(nums[i]);
-            if( posL == null) {
-                posL = new ArrayList<>();
-                pos.put(nums[i], posL);
-            } 
-            posL.add(i);
-        }
-        
-        
-        Integer pairPos = null;
-        for(int i = 0; i<nums.length; i++) {
-            List<Integer> tPosL = pos.get(target-nums[i]);
-            if(tPosL != null) {
-                for(Integer tpos : tPosL) {
-                    if(tpos != i) {
-                        pairPos = tpos;
-                        break;
-                    }    
-                }
-            }
-            
-            if(pairPos != null) {
-                return new int[]{i, (int)pairPos};
+            if( pos.get(target-nums[i]) != null) {
+              return new int[]{pos.get(target-nums[i]), i};  
+            } else {
+              pos.put(nums[i], i);
             }
         }
-        return null;
-    }
-        
+     return null;
+    }        
 }
